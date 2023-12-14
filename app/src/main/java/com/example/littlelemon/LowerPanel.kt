@@ -27,10 +27,13 @@ import androidx.compose.material3.Card as MenuCard
 @ExperimentalMaterial3Api
 @Composable
 fun LowerPanel(navController: NavHostController, dishes: List<Dish> = listOf()) {
-    WeeklySpecialCard()
-    LazyColumn{
-        itemsIndexed(dishes) { _, dish ->
-            MenuDish(navController, dish)
+    Column (Modifier
+        .padding(start = 12.dp, end = 12.dp, top = 16.dp, bottom = 16.dp)) {
+        WeeklySpecialCard()
+        LazyColumn {
+            itemsIndexed(dishes) { _, dish ->
+                MenuDish(navController, dish)
+            }
         }
     }
 }
@@ -66,7 +69,7 @@ fun MenuDish(navController: NavHostController? = null, dish: Dish) {
     ) {
         Row(
             modifier = Modifier
-                .padding(8.dp)
+                .padding(start = 12.dp, end = 12.dp, top = 16.dp, bottom = 16.dp)
         ) {
             Column(
                 modifier = Modifier

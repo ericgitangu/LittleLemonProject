@@ -19,9 +19,11 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun TopAppBar(scaffoldState: ScaffoldState? = null, scope: CoroutineScope? = null) {
-    Row(horizontalArrangement = Arrangement.SpaceBetween,
-    modifier = Modifier.fillMaxWidth(),
-    verticalAlignment = Alignment.CenterVertically) {
+    Row(
+        horizontalArrangement = Arrangement.SpaceBetween,
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         IconButton(onClick = {
             scope?.launch { scaffoldState?.drawerState?.open() }
         }) {
@@ -34,7 +36,8 @@ fun TopAppBar(scaffoldState: ScaffoldState? = null, scope: CoroutineScope? = nul
         Image(
             painter = painterResource(id = R.drawable.littlelemonimgtxt_nobg),
             contentDescription = "Little Lemon Logo",
-            modifier = Modifier.fillMaxWidth(0.5F)
+            modifier = Modifier
+                .fillMaxWidth(0.5F)
                 .padding(horizontal = 20.dp)
         )
         IconButton(onClick = { }) {

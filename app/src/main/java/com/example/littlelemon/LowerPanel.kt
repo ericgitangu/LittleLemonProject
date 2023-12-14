@@ -7,8 +7,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
@@ -27,13 +28,9 @@ import androidx.compose.material3.Card as MenuCard
 @ExperimentalMaterial3Api
 @Composable
 fun LowerPanel(navController: NavHostController, dishes: List<Dish> = listOf()) {
-    Column (Modifier
-        .padding(start = 12.dp, end = 12.dp, top = 16.dp, bottom = 16.dp)) {
-        WeeklySpecialCard()
-        LazyColumn {
-            itemsIndexed(dishes) { _, dish ->
-                MenuDish(navController, dish)
-            }
+    LazyVerticalGrid (columns = GridCells.Fixed(1)) {
+        items(dishes) { dish ->
+            MenuDish(navController, dish)
         }
     }
 }
@@ -50,7 +47,7 @@ fun WeeklySpecialCard() {
                 text = stringResource(R.string.weekly_special),
                 style = MaterialTheme.typography.h1,
                 modifier = Modifier
-                    .padding(8.dp)
+                    .padding(16.dp)
             )
         }
     }

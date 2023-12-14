@@ -32,7 +32,6 @@ fun UpperPanel() {
         modifier = Modifier
             .padding(start = 12.dp, end = 12.dp, top = 16.dp, bottom = 16.dp)
             .background(LittleLemonColor.green)
-ß
     ) {
         Text(
             text = stringResource(id = R.string.title),
